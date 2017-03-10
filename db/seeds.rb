@@ -20,7 +20,7 @@ end
     user.posts.create!(
       title:  Faker::Book.unique.title,
       body:   Faker::Lorem.paragraphs(4, true).join("\n\n"),
-      created_at: rand_time(2.years.ago)
+      created_at: rand_time(2.years.ago).to_formatted_s(:long_ordinal)
     )
   end
 

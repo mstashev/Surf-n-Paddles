@@ -15,7 +15,7 @@
           <%#=body = post.body.split('", "')
               body.join('</p><p>') %>
         </p><br>
-        <i>Created by: <%= post.user.username %> <%= post.created_at %></i>
+        <i>Created by: <%= post.user.username %> <%= post.created_at.to_formatted_s(:long_ordinal) %></i>
       </div>
     </div>
     <hr>
