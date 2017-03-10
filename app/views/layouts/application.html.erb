@@ -9,6 +9,85 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <header>
+          <div class="navbar-header top-menu text-left nav-pad-lt">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to root_path , class: "navbar-brand" do %>
+              <%= image_tag "logo-surf-and-paddle.svg", class: "media-object logo" %>
+            <% end %>
+            <a class="navbar-brand" href="#">Surf &amp; Paddle Co. Blog</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="a-pad" href="#">About</a></li>
+              <form class="navbar-form navbar-right">
+                <div class="form-group has-feedback search">
+                  <input type="text" class="form-control" placeholder="Search">
+                  <i class="glyphicon glyphicon-search form-control-feedback search-icon"></i>
+                </div>
+              </form>
+            </ul>
+          </div>
+          <div class="row text-center hdr-main">
+            <h1>Surf &amp; Paddle Co.</h1>
+            <p>
+              An Iron Yard Academy Project Est. Fall 2013
+            </p>
+          </div>
+        </header>
+      </div>
+    </nav>
     <%= yield %>
   </body>
+  <!-- footer -->
+  <footer>
+        <div class="container-fuid">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <hr/>
+                    <h2>Most Popular Posts</h2>
+                </div>
+            </div>
+        </div>
+        <div class="posts">
+            <div class="post" id="photo1">
+                <h3>Another Cool Post</h3>
+            </div>
+            <div class="post" id="photo2">
+                <h3>Post Title</h3>
+            </div>
+            <div class="post" id="photo3">
+                <h3>Here's Another Longer Post Title</h3>
+            </div>
+            <div class="post" id="photo4">
+                <h3>A Coola Post!</h3>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container footer-style">
+                <div class="row">
+                    <div class="col-sm-1 footer-nav">
+                      <%= image_tag "tiy-logo.png", class: "media-object" %>
+                    </div>
+                    <div class="col-sm-5 footer-nav">
+                       The Ironyard Copyright 2013, All Rights Reserved.
+                    </div>
+                    <div class="col-sm-6 footer-nav text-right nav">
+                        <a href="#">Nav Item 1</a> |
+                        <a href="#">Nav Item 2</a> |
+                        <a href="#">Nav Item 3</a> |
+                        <a href="#">Nav Item 4</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </html>

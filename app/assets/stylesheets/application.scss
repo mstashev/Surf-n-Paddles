@@ -1,0 +1,203 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+// Global
+
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+html, body {
+    height: 100%;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.container-fluid {
+  padding: 0px;
+}
+
+.search {
+  padding-right:100px;
+}
+
+.search-icon {
+  padding-right:125px;
+}
+
+// Header
+
+ header {
+    background-image: image-url("ocean-background.jpg");
+    background-size: cover;
+    font-family: 'Open Sans';
+ }
+
+.top-menu {
+    padding: 10px 0;
+}
+
+.top-menu .logo {
+    height: 100%;
+    padding-right: 10px;
+}
+
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+      color: #053553;
+}
+
+header a, header a:link, header a:visited, header a:hover, header a:active {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav-pad-rt {
+    padding-top: 10px;
+    padding-bottom: 16px;
+    font-family: 'Oswald';
+    padding-right: 10px;
+}
+
+.nav-pad-rt i {
+    padding-left: 5px;
+}
+
+.a-pad {
+    padding-right: 10px;
+}
+
+.hdr-main {
+    padding: 100px 10px 150px 10px;
+}
+
+header h1 {
+    color: white;
+    font-size: 90px;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+header p {
+    color: #053553;
+    font-size: 14px;
+}
+
+// Footer
+footer h2 {
+    color: #053553;
+    font-size: 60px;
+    text-transform: uppercase;
+    font-family:'Oswald';
+    margin: 20px 0 30px 0;
+}
+
+footer .posts {
+    display: flex;
+}
+
+footer .post {
+    flex:3;
+    height: 25vw;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+
+#photo1 {
+    background-image: linear-gradient(rgba(47,117,179,0.75), rgba(47,117,179,0.75)), image-url("surfer.jpg");
+    background-size: cover;
+}
+
+#photo1:hover {
+    background-image: image-url("surfer.jpg");
+    background-size: cover;
+}
+
+#photo2 {
+    background-image: linear-gradient(rgba(47,117,179,0.75), rgba(47,117,179,0.75)), image-url("waves.jpg");
+    background-size: cover;
+}
+
+#photo2:hover {
+    background-image: image-url("waves.jpg");
+    background-size: cover;
+}
+
+#photo3 {
+    background-image: linear-gradient(rgba(47,117,179,0.75), rgba(47,117,179,0.75)), image-url("ognjea.jpg");
+    background-size: cover;
+}
+
+#photo3:hover {
+    background-image: image-url("ognjea.jpg");
+    background-size: cover;
+}
+
+#photo4 {
+    background-image: linear-gradient(rgba(47,117,179,0.75), rgba(47,117,179,0.75)), image-url("soul-surfer.jpg");
+    background-size: cover;
+}
+
+#photo4:hover {
+    background-image: image-url("soul-surfer.jpg");
+    background-size: cover;
+}
+
+.posts h3 {
+    text-transform: uppercase;
+    font-family: 'Oswald'
+}
+
+.post:hover {
+    color: white;
+}
+
+.footer, .footer a {
+    background: #053553;
+    padding: 40px 0;
+    margin: 0;
+    color: #A3B3BE;
+}
+
+.footer a {
+    margin: 0 20px;
+}
+
+.footer a:last-child {
+    margin-right: 0;
+}
+
+.footer-nav {
+  height:40px;
+  vertical-align: middle;
+}
+
+.footer-style {
+  display: flex;
+  align-items: center;
+}
+
+// Posts
