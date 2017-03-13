@@ -28,6 +28,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li><a class="a-pad" href="#">About</a></li>
+              <li><%= link_to "Post", new_post_path, class: "btn btn-success" %></li>
               <form class="navbar-form navbar-right">
                 <div class="form-group has-feedback search">
                   <input type="text" class="form-control" placeholder="Search">
@@ -53,23 +54,22 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <hr/>
-                    <h2>Most Popular Posts</h2>
+                    <h2>Most Recent Posts</h2>
                 </div>
             </div>
         </div>
         <div class="posts">
-            <div class="post" id="photo1">
-                <h3>Another Cool Post</h3>
+          <% photo_num = 1 %>
+          <% @recent_posts.each do |post| %>
+            <div class="col-md-3">
+              <%= link_to post do %>
+                <div class="post" id="photo<%= photo_num %>">
+                  <h3><%= post.title %></h3>
+                </div>
+              <% end %>
             </div>
-            <div class="post" id="photo2">
-                <h3>Post Title</h3>
-            </div>
-            <div class="post" id="photo3">
-                <h3>Here's Another Longer Post Title</h3>
-            </div>
-            <div class="post" id="photo4">
-                <h3>A Coola Post!</h3>
-            </div>
+            <% photo_num += 1 %>
+          <% end %>
         </div>
         <div class="footer">
             <div class="container footer-style">
@@ -81,10 +81,7 @@
                        The Ironyard Copyright 2013, All Rights Reserved.
                     </div>
                     <div class="col-sm-6 footer-nav text-right nav">
-                        <a href="#">Nav Item 1</a> |
-                        <a href="#">Nav Item 2</a> |
-                        <a href="#">Nav Item 3</a> |
-                        <a href="#">Nav Item 4</a>
+                        <a href="#">Nav Item 1</a> | <a href="#">Nav Item 2</a> | <a href="#">Nav Item 3</a> | <a href="#">Nav Item 4</a>
                     </div>
                 </div>
             </div>
