@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
 
   before_action :find_post, only: [:edit, :show, :update]
+  before_action :require_user, only: [:edit, :show, :update]
+  before_action :is_owner, only: [:destroy]
 
   def index
     @posts = Post.order(created_at: :desc).page(params[:page])
@@ -35,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to :root
     else
@@ -57,6 +59,14 @@ class PostsController < ApplicationController
 
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def is_owner
+    find_post
+    unless @post.user == current_user
+      flash[:danger] = "You are not the creator of this Post."
+      redirect_to :root
+    end
   end
 
 end

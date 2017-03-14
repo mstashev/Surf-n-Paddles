@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
-    before_action :find_user, only: [:edit, :show, :update]
+      before_action :find_user, only: [:edit, :show, :update]
+      before_action :require_user, only: [:edit, :update]
+      before_action :require_self, only: [:edit, :update]
 
     def index
       @users = User.all
@@ -44,6 +46,13 @@ class UsersController < ApplicationController
 
     def find_user
       @user = User.find(params[:id])
+    end
+
+    def require_self
+      unless @user == current_user
+        flash[:danger] = "You are unauthorized to change this persons details"
+        redirect_to :root
+      end
     end
 
 end

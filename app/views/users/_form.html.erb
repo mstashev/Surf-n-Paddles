@@ -1,0 +1,8 @@
+<%= simple_form_for(user, html: {class: "form-horizontal"}) do |form| %>
+  <%= form.input  :name %>
+  <%= form.input  :username %>
+  <%= form.input  :password %>
+  <%= form.input  :email %>
+  <%= form.input  :avatar_url %>
+  <%= form.button :submit %>
+<% end %>

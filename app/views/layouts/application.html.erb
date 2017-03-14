@@ -28,7 +28,13 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li><a class="a-pad" href="#">About</a></li>
-              <li><%= link_to "Post", new_post_path, class: "btn btn-success" %></li>
+              <% if current_user %>
+                <li><%= link_to "Post", new_post_path, class: "btn btn-success" %></li>
+                <li><%= link_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %></li>
+              <% else %>
+                <li><%= link_to "Signup", new_user_path, class: "btn btn-primary" %></li>
+                <li><%= link_to "Login", login_path, class: "btn btn-primary" %></li>
+              <% end %>
               <form class="navbar-form navbar-right">
                 <div class="form-group has-feedback search">
                   <input type="text" class="form-control" placeholder="Search">
@@ -46,45 +52,54 @@
         </header>
       </div>
     </nav>
+    <% if flash.any? %>
+      <% flash.each do |status, message| %>
+        <div class="alert alert-<%= status %>" role="alert">
+          <p>
+            <%= message %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
     <%= yield %>
-  </body>
   <!-- footer -->
   <footer>
-        <div class="container-fuid">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <hr/>
-                    <h2>Most Recent Posts</h2>
-                </div>
-            </div>
+    <div class="container-fuid">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <hr/>
+          <h2>Most Recent Posts</h2>
         </div>
-        <div class="posts">
-          <% photo_num = 1 %>
-          <% @recent_posts.each do |post| %>
-            <div class="col-md-3">
-              <%= link_to post do %>
-                <div class="post" id="photo<%= photo_num %>">
-                  <h3><%= post.title %></h3>
-                </div>
-              <% end %>
+      </div>
+    </div>
+    <div class="posts">
+      <% photo_num = 1 %>
+      <% @recent_posts.each do |post| %>
+        <div class="col-md-3">
+          <%= link_to post do %>
+            <div class="post" id="photo<%= photo_num %>">
+              <h3><%= post.title %></h3>
             </div>
-            <% photo_num += 1 %>
           <% end %>
         </div>
-        <div class="footer">
-            <div class="container footer-style">
-                <div class="row">
-                    <div class="col-sm-1 footer-nav">
-                      <%= image_tag "tiy-logo.png", class: "media-object" %>
-                    </div>
-                    <div class="col-sm-5 footer-nav">
-                       The Ironyard Copyright 2013, All Rights Reserved.
-                    </div>
-                    <div class="col-sm-6 footer-nav text-right nav">
-                        <a href="#">Nav Item 1</a> | <a href="#">Nav Item 2</a> | <a href="#">Nav Item 3</a> | <a href="#">Nav Item 4</a>
-                    </div>
+        <% photo_num += 1 %>
+      <% end %>
+    </div>
+    <div class="footer">
+        <div class="container footer-style">
+            <div class="row">
+                <div class="col-sm-1 footer-nav">
+                  <%= image_tag "tiy-logo.png", class: "media-object" %>
                 </div>
-            </div>
-        </div>
+                <div class="col-sm-5 footer-nav">
+                   The Ironyard Copyright 2013, All Rights Reserved.
+                </div>
+                <div class="col-sm-6 footer-nav text-right nav">
+                    <a href="#">Nav Item 1</a> | <a href="#">Nav Item 2</a> | <a href="#">Nav Item 3</a> | <a href="#">Nav Item 4</a>
+                </div>
+              </div>
+          </div>
+      </div>
     </footer>
+  </body>
 </html>

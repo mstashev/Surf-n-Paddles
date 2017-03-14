@@ -3,27 +3,16 @@
 
   <h1>Posts</h1>
   <%= paginate @posts %>
-    <% @posts.each do |post| %>
-      <div class="row">
-        <div class="col-xs-4">
-          <%= image_tag post.user.avatar_url, class: "media-object" %>
-        </div>
-        <div class="col-xs-8">
-          <h3><%= post.title %></h3>
-          <p>
-            <%= simple_format(post.body) %>
 
-            <%#=body = post.body.split('", "')
-                body.join('</p><p>') %>
-          </p><br>
-          <i>Created by: <%= post.user.username %> <%= post.created_at.to_formatted_s(:long_ordinal) %></i>
-        </div>
-      </div>
-      <hr>
-    <% end %>
+
+  <% @posts.each do |post| %>
+    <% render partial: "posts/post", locals: {post: post} %>
+  <% end %>
+
+  <%= render @posts %>
+
   <%= paginate @posts %>
   <br>
-
   <div class="col-xs-12">
     <%= link_to 'New Post', new_post_path %>
   </div>
