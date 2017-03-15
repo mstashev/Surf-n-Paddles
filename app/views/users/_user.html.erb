@@ -15,9 +15,7 @@
           <h2>Name: <%= @user.name %></h2>
           <h3>Username: <%= @user.username %></h3>
           <h3>Posts</h3>
-          <%= paginate @user.posts %>
-            <%= render @user.posts %>
-          <%= paginate @user.posts %>
+          <%= render @user.posts %>
         </div>
       </div>
     </div>
