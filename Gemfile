@@ -51,6 +51,11 @@ gem 'factory_girl_rails'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'shoulda'
+gem 'carrierwave'
+# for aws3
+# gem 'fog-aws'
+
+gem 'cloudinary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
