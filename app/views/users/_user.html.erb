@@ -5,7 +5,7 @@
       <!-- Main -->
       <div class="row">
         <div class="col-md-3">
-          <%= image_tag @user.avatar_url, class: "img-responsive" %>
+          <%= image_tag @user.avatar_url, class: "img-responsive img-circle" %>
           <% if current_user == @user %>
             <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary" %>
           <% end %>
@@ -15,7 +15,25 @@
           <h2>Name: <%= @user.name %></h2>
           <h3>Username: <%= @user.username %></h3>
           <h3>Posts</h3>
-          <%= render @user.posts %>
+          <% if @user.posts.count > 0 %>
+            <%= render @user.posts %>
+          <% else %>
+            <div class="container">
+              <p id="notice"><%= notice %></p>
+              <div class="row section-margin section">
+                <div class="col-sm-8">
+                  <div class="row">
+                    <p class="col-sm-4 hdr-p">
+                      No posts yet!
+                    </p>
+                    <p class="col-sm-4 hdr-p">
+                      <%= link_to 'Create your first post!', new_post_path, class: "btn btn-primary" %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
