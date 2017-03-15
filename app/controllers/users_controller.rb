@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-      before_action :find_user, only: [:edit, :show, :update]
+      before_action :find_user, only: [:edit, :show, :update, :destroy]
       before_action :require_user, only: [:edit, :update]
       before_action :require_self, only: [:edit, :update]
 
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     def create
       @user = User.new(user_params)
       if @user.save
+        UserMailer.signup(@user).deliver
         redirect_to @user
       else
         render :new
@@ -36,6 +37,12 @@ class UsersController < ApplicationController
       else
         render :edit
       end
+    end
+
+    def destroy
+      session[:user_id] = nil
+      @user.destroy
+      redirect_to :root
     end
 
     private

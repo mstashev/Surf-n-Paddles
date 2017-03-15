@@ -6,7 +6,7 @@
         <h1 class="home-post-title"><%= post.title.upcase %></h1>
         <p class="col-sm-4 hdr-p">
           <%= image_tag post.user.avatar_url, class: "media-object, img-circle" %>
-          <span id="user"><%= post.user.name %></span>
+          <span id="user"><a href="/users/<%= post.user.id %>"><%= post.user.name %></a></span>
         </p>
         <p class="col-sm-4 date hdr-p">
           on <a class="date" href="#"><%= post.created_at.to_formatted_s(:long_ordinal) %></a>
