@@ -14,7 +14,6 @@
         <div class="col-md-9">
           <h2>Name: <%= @user.name %></h2>
           <h3>Username: <%= @user.username %></h3>
-          <h3>Posts</h3>
           <% if @user.posts.count > 0 %>
             <%= render @user.posts %>
           <% else %>
