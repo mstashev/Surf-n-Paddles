@@ -47,5 +47,5 @@ bower.json
 /config/application.yml
 sendgrid.env
 
-# Don't store temp image files in Github
+# Don't store temp image files in Github 
 /public/uploads/*
