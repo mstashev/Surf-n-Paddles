@@ -1,3 +1,32 @@
-<% #@ post = Post.find_by(params[:id]) %>
-<% # render partial: "post", locals: {post: @post} %>
-<%= render @post %>
+<div class="container">
+  <div class="row section-margin section">
+    <div class="col-sm-8">
+      <div class="row">
+        <h1 class="home-post-title"><%= @post.title.upcase %></h1>
+        <p class="col-sm-4 hdr-p">
+          <%= image_tag @post.user.personage, class: "media-object, img-circle" %>
+          <span id="user"><a href="/users/<%= @post.user.id %>"><%= @post.user.name %></a></span>
+        </p>
+        <p class="col-sm-4 date hdr-p">
+          on <a class="date" href="#"><%= @post.created_at.to_formatted_s(:long_ordinal) %></a>
+        </p>
+      </div>
+      <div class="row p-top media-body" id="p-no-margin">
+        <p>
+          <%= simple_format(@post.body) %>
+        </p>
+      </div>
+      <% if @post.photo? %>
+        <div class="media-right photo">
+          <%= image_tag @post.photo.versions[:thumb].url, class: "img-responsive", alt: @post.title %>
+        </div>
+      <% else %>
+        <div class="media-right">
+          <p>
+            No photo.
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

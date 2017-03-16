@@ -6,8 +6,8 @@ class UserMailer < ApplicationMailer
   end
 
   def share(post, to)
-    @post = post
-    mail(to: to, subject: @post.title.to_s() +' was shared with you', )
+    @post = Post.find_by(id: post)
+    mail(to: to, subject: @post.title.to_s() +' was shared with you' )
   end
 
 end

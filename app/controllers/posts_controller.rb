@@ -52,7 +52,12 @@ class PostsController < ApplicationController
   end
 
   def share
-    UserMailer.share(@post, params[:email]).deliver
+
+  end
+
+  def share_email
+    UserMailer.share(params[:id], params[:email]).deliver
+    redirect_to @post
   end
 
   private

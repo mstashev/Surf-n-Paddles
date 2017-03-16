@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   post   '/login'      => 'sessions#create'
   delete '/logout'     => 'sessions#destroy', as: :logout
   get    '/share/:id'  => 'posts#share',      as: :share
-  # post
+  post   '/share/:id'  => 'posts#share_email'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -3,6 +3,8 @@
     <div class="col-xs-4">
       <%= simple_form_for :share, html: {class: "form-horizontal"} do |form| %>
         <%= form.input :email %>
+        <%= form.input :id, :as => :hidden, :input_html => { :value => params[:id] } %>
+        <%= form.button :submit %>
       <% end %>
     </div>
   </div>
