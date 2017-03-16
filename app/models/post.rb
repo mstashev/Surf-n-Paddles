@@ -1,7 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :user
 
-  # mount_uploader :photo, PostPhotoUploader
+  mount_uploader :pic, PostPhotoUploader
+
+  delegate :avatar_url, to: :user
 
   validates :title, presence: true
   validates :body, presence: true
