@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:edit, :show, :update, :share]
+  before_action :find_post, only: [:edit, :show, :update, :share, :share_email]
   before_action :require_user, only: [:edit, :show, :update]
   before_action :is_owner, only: [:destroy]
 
