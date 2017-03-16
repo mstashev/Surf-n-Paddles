@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:edit, :show, :update]
+  before_action :find_post, only: [:edit, :show, :update, :share]
   before_action :require_user, only: [:edit, :show, :update]
   before_action :is_owner, only: [:destroy]
 
@@ -51,10 +51,14 @@ class PostsController < ApplicationController
     redirect_to :root
   end
 
+  def share
+    UserMailer.share(@post, params[:email]).deliver
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :title, :body)
+    params.require(:post).permit(:user_id, :title, :body, :email)
   end
 
   def find_post

@@ -1,5 +1,12 @@
-<%= simple_form_for(post) do |form| %>
-    <%= form.input :title %>
-    <%= form.input :body %>
-    <%= form.submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= simple_form_for @post, html: {class: "form-horizontal"} do |form| %>
+        <%= form.input  :title %>
+        <%= form.input  :body %>
+        <%= form.input  :pic %>
+        <%= form.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
